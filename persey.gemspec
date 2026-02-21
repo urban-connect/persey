@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "persey"
-  spec.version = "2.0.0"
+  spec.version = "2.1.0"
   spec.authors = ["Urban Connect"]
   spec.summary = "Simple configuration DSL with environment inheritance"
 
