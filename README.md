@@ -50,3 +50,11 @@ Persey.config.base_url # => "https://example.com"
 bundle install
 bundle exec rspec
 ```
+
+## Releasing
+
+1. Update the version in `persey.gemspec`.
+2. Commit the change: `git commit -am "Bump version to x.y.z"`.
+3. Create a tag: `git tag vx.y.z`.
+4. Push: `git push origin main --tags`.
+5. Update the `tag:` reference in the consuming app's Gemfile and run `bundle install`.
