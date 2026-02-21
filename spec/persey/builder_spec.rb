@@ -11,7 +11,7 @@ RSpec.describe Persey::Builder do
         end
       })
 
-      expect(builder.result).to eq({ app_name: "my_app" })
+      expect(builder.result).to eq({app_name: "my_app"})
     end
 
     it "deep merges parent config" do
@@ -30,7 +30,7 @@ RSpec.describe Persey::Builder do
         end
       })
 
-      expect(builder.result).to eq({ database: { host: "localhost", port: 3306 } })
+      expect(builder.result).to eq({database: {host: "localhost", port: 3306}})
     end
 
     it "returns empty hash for environment without block" do
@@ -42,7 +42,7 @@ RSpec.describe Persey::Builder do
         env :child, parent: :parent
       })
 
-      expect(builder.result).to eq({ app_name: "my_app" })
+      expect(builder.result).to eq({app_name: "my_app"})
     end
   end
 end

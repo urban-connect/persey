@@ -25,7 +25,7 @@ module Persey
     end
 
     private def env(name, options = {}, &block)
-      @envs[name.to_sym] = { options: options, block: block }
+      @envs[name.to_sym] = {options: options, block: block}
     end
 
     private def source(*)
@@ -35,7 +35,7 @@ module Persey
       merged = target.dup
       source.each_pair do |k, v|
         tv = merged[k]
-        merged[k] = tv.is_a?(Hash) && v.is_a?(Hash) ? deep_merge(tv, v) : v
+        merged[k] = (tv.is_a?(Hash) && v.is_a?(Hash)) ? deep_merge(tv, v) : v
       end
       merged
     end

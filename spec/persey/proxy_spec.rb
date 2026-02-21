@@ -7,7 +7,7 @@ RSpec.describe Persey::Proxy do
     it "collects simple key-value pairs" do
       proxy = described_class.new(proc { name "test" })
 
-      expect(proxy.result).to eq({ name: "test" })
+      expect(proxy.result).to eq({name: "test"})
     end
 
     it "collects nested blocks as hashes" do
@@ -17,7 +17,7 @@ RSpec.describe Persey::Proxy do
         end
       })
 
-      expect(proxy.result).to eq({ database: { host: "localhost" } })
+      expect(proxy.result).to eq({database: {host: "localhost"}})
     end
   end
 end
