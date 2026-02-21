@@ -33,6 +33,15 @@ RSpec.describe Persey::Builder do
       expect(builder.result).to eq({database: {host: "localhost", port: 3306}})
     end
 
+    it "raises ArgumentError for circular parent dependencies" do
+      builder = described_class.new(:a, proc {
+        env :a, parent: :b
+        env :b, parent: :a
+      })
+
+      expect { builder.result }.to raise_error(ArgumentError, /Circular parent dependency detected/)
+    end
+
     it "returns empty hash for environment without block" do
       builder = described_class.new(:child, proc {
         env :parent do

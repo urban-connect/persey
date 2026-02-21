@@ -29,6 +29,34 @@ RSpec.describe Persey::Node do
 
       expect(pairs).to eq([[:a, 1], [:b, 2]])
     end
+
+    it "wraps nested hash values as Nodes" do
+      node = described_class.new({name: "test", database: {host: "localhost"}})
+      values = {}
+
+      node.each_pair { |k, v| values[k] = v }
+
+      expect(values[:name]).to eq("test")
+      expect(values[:database]).to be_a(described_class)
+      expect(values[:database].host).to eq("localhost")
+    end
+  end
+
+  describe "deep freeze" do
+    it "freezes config values to prevent mutation" do
+      node = described_class.new({name: "test"})
+
+      expect(node[:name]).to be_frozen
+      expect { node[:name] << " modified" }.to raise_error(FrozenError)
+    end
+  end
+
+  describe "#inspect" do
+    it "returns a clean representation" do
+      node = described_class.new({name: "test"})
+
+      expect(node.inspect).to match(/\A#<Persey::Node \{.*name.*"test".*\}>\z/)
+    end
   end
 
   describe "missing methods" do
