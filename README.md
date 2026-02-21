@@ -2,7 +2,7 @@
 
 Configuration DSL with environment inheritance.
 
-This is a rewrite of the original [persey](https://github.com/imdrasil/persey) gem that has been used for configuration at Urban Connect for years. The original gem was no longer maintained, so we extracted and rewrote the core functionality in a backward-compatible way.
+This is a rewrite of the original [persey](https://github.com/zzet/persey) gem that has been used for configuration at Urban Connect for years. The original gem was no longer maintained, so we extracted and rewrote the core functionality in a backward-compatible way.
 
 ## Usage
 
